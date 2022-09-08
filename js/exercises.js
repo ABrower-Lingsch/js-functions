@@ -100,24 +100,55 @@
   // Define a function findLongestWord() that takes an array of words and returns the length of the longest one.
   // ---------------------
 
-  function findLongestWord(arr) {
-    let word = "";
-
-    for (let i = 0; i < arr.length; i++) {
-      if (word.length < arr[i].Length) {
-        word = arr[i];
+  function findLongestWord(array) {
+    // identifies the longest word in an array and counts it
+    let words = array.length;
+    let count = 0;
+    for (let i = 0; i < words; i++) {
+      // loops through the array to count each word
+      if (array[i].length > count) {
+        count = array[i].length;
       }
-    }
-    return word;
+    } //compares the count of each word and returns the largest
+    return count;
   }
 
   // ---------------------
   // Define a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
   // ---------------------
 
+  function filterLongWords(array, int) {
+    //identifies words in array that are longer than the given integer
+    let length = array.length;
+    let longestWords = [];
+    for (let i = 0; i < length; i++) {
+      // loops through words in the array
+      if (array[i].length > int) {
+        // identifies whech words are longer than the given integer by seeing which ones meet the condition
+        longestWords[longestWords.length] = array[i];
+      }
+    } // returns the words that satisfy the if condition
+    return longestWords;
+  }
+
   // ---------------------
   // Define a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
   // ---------------------
+
+  function charFreq(string) {
+    // this function creates a list of characters and their frequency
+    let list = {};
+    let length = string.length;
+    for (let i = 0; i < length; i++) {
+      // loops through all characters in the given string
+      if (string.charAt(i) in list) {
+        list[string.charAt(i)] += +1; // if the character has already been added to the list, its count will be increased by one
+      } else {
+        list[string.charAt(i)] = 1; // if the character is not on the list already, it will be added to it
+      }
+    }
+    return list; // returns the full list after fully looping through the string
+  }
 
   ////////////////////////////////////////////////////////////////////////
   /////////////////////////DO NOT CHANGE CODE BELOW///////////////////////
